@@ -1,2 +1,4 @@
+*.o
+*.a
 libft-unit-test/
 libftTester/
