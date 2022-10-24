@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchawsar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 09:30:09 by jchawsar          #+#    #+#             */
-/*   Updated: 2022/10/24 23:31:49 by jchawsar         ###   ########.fr       */
+/*   Created: 2022/10/24 23:37:46 by jchawsar          #+#    #+#             */
+/*   Updated: 2022/10/24 23:46:32 by jchawsar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_negative(int n, int fd)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write (fd, "-", 1);
-	return (n * -1);
-}
+	size_t	i;
+	char	*strmapi;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	int		i;
-	char	str[11];
-
-	i = 0;
-	if (n == 0)
-		write(fd, "0", 1);
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-		n = is_negative(n, fd);
-	while (n > 0)
-	{
-		str[i++] = (n % 10) + '0';
-		n = n / 10;
-	}
-	while (--i >= 0)
-		write(fd, &str[i], 1);
+	i = -1;
+	if (!s)
+		return (0);
+	strmapi = (char *)ft_calloc(1, ft_strlen(s) + 1);
+	if (!strmapi)
+		return (NULL);
+	while (++i < ft_strlen(s))
+		strmapi[i] = f(i, s[i]);
+	return (strmapi);
 }

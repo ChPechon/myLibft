@@ -6,13 +6,13 @@
 /*   By: jchawsar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 22:30:29 by jchawsar          #+#    #+#             */
-/*   Updated: 2022/09/20 23:38:45 by jchawsar         ###   ########.fr       */
+/*   Updated: 2022/10/25 00:08:11 by jchawsar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_neg(char c)
+static int	is_neg(char c)
 {
 	if (c == '-')
 		return (-1);
