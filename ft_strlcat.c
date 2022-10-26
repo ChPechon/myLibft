@@ -6,7 +6,7 @@
 /*   By: jchawsar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:01:25 by jchawsar          #+#    #+#             */
-/*   Updated: 2022/10/15 09:28:13 by jchawsar         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:02:57 by jchawsar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len;
 
+	if (dstsize == 0)
+		return (ft_strlen(src));
 	len = ft_strlen(dst);
 	if (len >= dstsize)
 		return (dstsize + ft_strlen(src));
